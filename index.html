@@ -8,6 +8,39 @@
 <script>var counter = 0;var c = document.getElementById("myCanvas");
 c.width = window.innerWidth;
 c.height = window.innerWidth;
+  
+   document.ontouchmove = function(event){
+    event.preventDefault();
+}
+window.addEventListener('onorientationchange', function () {
+  
+}, true);
+
+
+
+init();
+
+
+function init() {
+    if (window.DeviceOrientationEvent) {
+        
+        window.addEventListener('deviceorientation', function (eventData) {
+            var tiltLR = eventData.gamma;
+            var tiltFB = eventData.beta;
+            var dir = eventData.alpha
+            var ctx = c.getContext("2d");
+            ctx.fillRect(tiltLR.toFixed(1), tiltFB.toFixed(1), 10, 10);
+           
+        }, false);
+    } else {
+       
+    }
+}
+
+
+
+
+
 setInterval(function(){ counter++; 
 
 var ctx = c.getContext("2d");
