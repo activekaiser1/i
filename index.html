@@ -1,28 +1,128 @@
-<!DOCTYPE html>
-<html>
-<body>
+/* === CCI Time Machine === */ 
 
-<canvas id="myCanvas" style="border:1px solid #d3d3d3;">
-</canvas>
+.cci-newspaper-wrapper
+ .cci-newspaper
+ .cci-newspaper#section2
+ .cci-newspaper#section3
 
-<script>var counter = 0;var c = document.getElementById("myCanvas");
-c.width = window.innerWidth;
-c.height = window.innerWidth;
+
+.motion-console
+ span.motion-support#doEvent
+ div.tilt-left-right#doTiltLR
+ div.tilt-front-back#doTiltFB
+ div.alpha-direction#doDirection
+ 
+ <style>
+ /* === CCI Time Machine === */ 
+
+* {
+  position: relative;
+  box-sizing: border-box;
+} 
+
+html {
+ 
+  height: 100%;
+  max-height: 100%;
   
+}
 
+body {
+  background: #2c3e50 center center no-repeat;
+  background-size: cover;
+  padding-top: 70px;
+  font-family: "Helvetica", sans-serif;
+  color: #444;
+  overflow-x: hidden;
+}
 
+/* === Newspaper === */
+.cci-newspaper-wrapper {
+  overflow-x: hidden;
+  width: 310%;
+  transform: translateX(-50px);
+}
 
-
+.cci-newspaper {
   
+  display: inline-block;
+  float: left;
+  width: 813px;
+  height: 512px;
+  margin-right: 2rem;
+  background: #ecf0f1 url('http://www.autofunk.dk/uhrlaut/120510_Jyllandposten_Pladeselskab_bifalder_omstridt_site_(web).jpg') center center no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,.33);
   
-     document.ontouchmove = function(event){
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform-origin-x: 50%;
+  -webkit-transform-origin-y: 50%;
+
+  & + .cci-newspaper {
+    z-index: 1;
+    background: url(http://www.oeh.kk.dk/Infoweb/indhold/Scrapbogen/2005/2005%20Jyllandsposten%20om%20hashhandel.jpg);
+    background-size: cover;
+  }
+  
+}
+
+.in-focus {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25px;
+  opacity: 1;
+}
+
+
+.orientleft #shell {
+    -webkit-transform: rotate(-90deg);
+    -webkit-transform-origin:160px 160px;
+}
+
+.orientright #shell {
+    -webkit-transform: rotate(90deg);
+    -webkit-transform-origin:230px 230px;
+} 
+
+/* === Motion Console === */
+.motion-console {
+  
+  width: 10rem;
+  position: absolute;
+  top: 25px;
+  right: 2%;
+  padding: 1rem;
+  color: ghostwhite;
+  border-radius: 4px;
+  background: #34495e;
+  opacity: .85;
+  
+  .tilt-left-right:after { content: " Left / Right "; }
+  .tilt-front-back:after { content: " Front / Back "; }
+  .alpha-direction:after { content: " Alpha "; }
+}
+</style>
+
+<script>
+
+ document.ontouchmove = function(event){
     event.preventDefault();
 }
 window.addEventListener('onorientationchange', function () {
-  
+    if (window.orientation == -90) {
+        document.getElementById('orient').className = 'orientright';
+    }
+    if (window.orientation == 90) {
+        document.getElementById('orient').className = 'orientleft';
+    }
+    if (window.orientation == 0) {
+        document.getElementById('orient').className = '';
+    }
 }, true);
 
-
+/* === CCI Time Machine === */
+var newspaper = $('.cci-newspaper');
 
 init();
 var count = 0;
@@ -34,25 +134,36 @@ function init() {
             var tiltLR = eventData.gamma;
             var tiltFB = eventData.beta;
             var dir = eventData.alpha
-             deviceOrientationHandler(tiltLR, tiltFB, dir);
-          
-           
-          
-          
-          
+            deviceOrientationHandler(tiltLR, tiltFB, dir);
         }, false);
     } else {
-       
+        document.getElementById("doEvent").innerHTML = "Not supported on your device or browser.  Sorry."
     }
 }
-  var isPaused = false;
- function deviceOrientationHandler(tiltLR, tiltFB, dir) {
-            var c = document.getElementById("myCanvas");
-            var ctx = c.getContext("2d");
-            ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
-            };
 
-</script> 
+var isPaused = false;
 
-</body>
-</html>
+$(newspaper).on('click touchstart', function(){
+   
+   
+  
+});
+
+
+   function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+      
+     
+      document.getElementById("doTiltLR").innerHTML = (tiltLR / 8).toFixed(2);
+      document.getElementById("doTiltFB").innerHTML = (tiltFB / 2).toFixed(2);
+      //document.getElementById("doDirection").innerHTML = dir;
+      
+      newspaper.attr({ 
+        'style' : '-webkit-transform: translateX(' + (tiltFB * 75)  + 'px);'
+      });
+       
+     
+      
+    }
+
+
+ </script>
