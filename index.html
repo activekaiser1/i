@@ -9,34 +9,6 @@
 c.width = window.innerWidth;
 c.height = window.innerWidth;
   
-   document.ontouchmove = function(event){
-    event.preventDefault();
-}
-window.addEventListener('onorientationchange', function () {
-  
-}, true);
-
-
-
-init();
-
-
-function init() {
-    if (window.DeviceOrientationEvent) {
-        
-        window.addEventListener('deviceorientation', function (eventData) {
-            var tiltLR = eventData.gamma;
-            var tiltFB = eventData.beta;
-            var dir = eventData.alpha
-            var ctx = c.getContext("2d");
-            ctx.fillRect(tiltLR.toFixed(1), tiltFB.toFixed(1), 10, 10);
-           
-        }, false);
-    } else {
-       
-    }
-}
-
 
 
 
@@ -93,6 +65,39 @@ ctx.stroke();
 if(counter==(window.innerWidth/8*1).toFixed(0)){counter=0;};
 
 }, 30);
+  
+  
+  
+     document.ontouchmove = function(event){
+    event.preventDefault();
+}
+window.addEventListener('onorientationchange', function () {
+  
+}, true);
+
+
+
+init();
+
+
+function init() {
+    if (window.DeviceOrientationEvent) {
+        
+        window.addEventListener('deviceorientation', function (eventData) {
+          var c = document.getElementById("myCanvas");
+            var tiltLR = eventData.gamma;
+            var tiltFB = eventData.beta;
+            var dir = eventData.alpha
+            var ctx = c.getContext("2d");
+            ctx.fillRect(tiltLR.toFixed(), tiltFB.toFixed(), 50, 50);
+           
+        }, false);
+    } else {
+       
+    }
+}
+
+
 </script> 
 
 </body>
