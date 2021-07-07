@@ -25,25 +25,32 @@ window.addEventListener('onorientationchange', function () {
 
 
 init();
-
+var count = 0;
 
 function init() {
     if (window.DeviceOrientationEvent) {
         
         window.addEventListener('deviceorientation', function (eventData) {
-          var c = document.getElementById("myCanvas");
             var tiltLR = eventData.gamma;
             var tiltFB = eventData.beta;
             var dir = eventData.alpha
-            var ctx = c.getContext("2d");
-            ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
+             deviceOrientationHandler(tiltLR, tiltFB, dir);
+          
            
+          
+          
+          
         }, false);
     } else {
        
     }
 }
-
+  var isPaused = false;
+ function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
+            };
 
 </script> 
 
