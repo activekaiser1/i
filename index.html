@@ -89,7 +89,7 @@ function init() {
             var tiltFB = eventData.beta;
             var dir = eventData.alpha
             var ctx = c.getContext("2d");
-            ctx.fillRect(tiltLR.toFixed(), tiltFB.toFixed(), 50, 50);
+            ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
            
         }, false);
     } else {
