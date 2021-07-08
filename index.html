@@ -163,7 +163,7 @@ $(newspaper).on('click touchstart', function(){
         var ctx = c.getContext("2d");
         ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
         ctx.fillStyle = "black";
-        ctx.fillRect(tiltLR*10, tiltFB*10, 10, 10);
+        ctx.fillRect(window.innerWidth/2+tiltLR*10, window.innerHeight/2+tiltFB*10, 10, 10);
            
      
       newspaper.attr({ 
