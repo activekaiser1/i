@@ -35,6 +35,50 @@ function init() {
         }, false);
     } 
 }
+        
+        
+        
+        setInterval(function(){ counter++; 
+
+ctx.beginPath();
+
+ctx.rect(1-counter, 1-counter, (window.innerWidth/2)-1+counter, (window.innerWidth/2)-1+counter);
+ctx.rect(1-counter, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.rect(window.innerWidth/2, 1-counter, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.rect(window.innerWidth/2, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+
+ctx.rect(1+window.innerWidth/8-counter, 1+window.innerWidth/8-counter, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
+ctx.rect(1+window.innerWidth/8-counter, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
+ctx.rect(window.innerWidth/8*4, 1+window.innerWidth/8-counter, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
+ctx.rect(window.innerWidth/8*4, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
+
+ctx.rect(1+window.innerWidth/8*2-counter, 1+window.innerWidth/8*2-counter, window.innerWidth/2-window.innerWidth/8*2-1+counter, window.innerWidth/2-window.innerWidth/8*2-1+counter);
+ctx.rect(1+window.innerWidth/8*2-counter, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8*2-1+counter, window.innerWidth/2-window.innerWidth/8*2-1+counter);
+ctx.rect(window.innerWidth/8*4, 1+window.innerWidth/8*2-counter, window.innerWidth/2-window.innerWidth/8*2-1+counter, window.innerWidth/2-window.innerWidth/8*2-1+counter);
+ctx.rect(window.innerWidth/8*4, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8*2-1+counter, window.innerWidth/2-window.innerWidth/8*2-1+counter);
+
+
+ctx.rect(1+window.innerWidth/8*3-counter, 1+window.innerWidth/8*3-counter, window.innerWidth/2-window.innerWidth/8*3-1+counter, window.innerWidth/2-window.innerWidth/8*3-1+counter);
+ctx.rect(1+window.innerWidth/8*3-counter, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8*3-1+counter, window.innerWidth/2-window.innerWidth/8*3-1+counter);
+ctx.rect(window.innerWidth/8*4, 1+window.innerWidth/8*3-counter, window.innerWidth/2-window.innerWidth/8*3-1+counter, window.innerWidth/2-window.innerWidth/8*3-1+counter);
+ctx.rect(window.innerWidth/8*4, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8*3-1+counter, window.innerWidth/2-window.innerWidth/8*3-1+counter);
+
+ctx.rect(window.innerWidth/2-counter, window.innerWidth/2-counter, counter, counter);
+ctx.rect(window.innerWidth/2, window.innerWidth/2-counter, counter, counter);
+ctx.rect(window.innerWidth/2-counter, window.innerWidth/2, counter, counter);
+ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
+
+ctx.stroke();
+}, 3000);
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
       
