@@ -3,6 +3,7 @@
 <body>
 
 <canvas id="myCanvas" style="border:1px solid #d3d3d3;">
+<canvas id="myCanva" style="border:1px solid #d3d3d3;">
 </canvas>
 
 
@@ -15,14 +16,32 @@ c.height = window.innerWidth;
 c.style.position = "absolute";
 c.style.top = window.innerHeight/2 - window.innerWidth/2 + "px";
 
-        var ctx = c.getContext("2d");
+var cc = document.getElementById("myCanva");
+var ctxx = cc.getContext("2d");
+cc.width = window.innerWidth;
+cc.height = window.innerWidth;
+cc.style.position = "absolute";
+cc.style.top = window.innerHeight/2 - window.innerWidth/2 + "px";
      
  document.ontouchmove = function(event){
     event.preventDefault();
  };
 
 
-  
+init();
+
+function init() {
+    if (window.DeviceOrientationEvent) {
+        
+        window.addEventListener('deviceorientation', function (eventData) {
+            var tiltLR = eventData.gamma;
+            var tiltFB = eventData.beta;
+            var dir = eventData.alpha
+            deviceOrientationHandler(tiltLR, tiltFB, dir);
+        }, false);
+    } 
+}
+        
         
         
        
@@ -74,30 +93,24 @@ ctx.rect(window.innerWidth/2-counter, window.innerWidth/2, counter, counter);
 ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
 
 ctx.stroke();
-                               
-                               
-        
-        window.addEventListener('deviceorientation', function (eventData) {
-            var tiltLR = eventData.gamma;
-            var tiltFB = eventData.beta;
-            var dir = eventData.alpha
-            ctx.fillStyle = "black";
-        ctx.fillRect(window.innerWidth/2+tiltLR*15, window.innerWidth/2+tiltFB*15, 10, 10);
-        }, false);
-    } 
-                               
 
 if(counter==(window.innerWidth/8*1).toFixed(0)){counter=0;};
-                               
-                               
 
 }, 30);
 
         
-
+        
+        
+        
         
 
-
+   function deviceOrientationHandler(tiltLR, tiltFB, dir) {
+      
+        ctxx.clearRect(0,0,window.innerWidth,window.innerHeight);
+        ctxx.fillStyle = "black";
+        ctxx.fillRect(window.innerWidth/2+tiltLR*15, window.innerWidth/2+tiltFB*15, 10, 10);
+           
+    }
 
 
  </script>
