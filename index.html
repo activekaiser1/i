@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <canvas id="myCanvas" style="border:1px solid #d3d3d3;">
 </canvas>
 <div class="cci-newspaper-wrapper">
@@ -160,7 +160,7 @@ $(newspaper).on('click touchstart', function(){
         var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         ctx.fillStyle = "#FF0000";
-        ctx.fillRect(50, 50, 50, 50);
+        ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
            
      
       newspaper.attr({ 
