@@ -42,7 +42,7 @@ function init() {
         
         
         setInterval(function(){ counter++; 
-
+deviceOrientationHandler(tiltLR, tiltFB, dir);
 ctx.beginPath();
 ctx.fillStyle="red";
 ctx.rect(1-counter, 1-counter, (window.innerWidth/2)-1+counter, (window.innerWidth/2)-1+counter);
@@ -87,7 +87,7 @@ ctx.rect(window.innerWidth/2-counter, window.innerWidth/2, counter, counter);
 ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
 
 ctx.stroke();
-deviceOrientationHandler(tiltLR, tiltFB, dir);
+
 if(counter==(window.innerWidth/8*1).toFixed(0)){counter=0;};
 
 }, 30);
