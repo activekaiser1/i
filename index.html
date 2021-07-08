@@ -18,19 +18,8 @@ c.height = window.innerWidth;
     event.preventDefault();
  };
 
-window.addEventListener('onorientationchange', function () {
-    if (window.orientation == -90) {
-   
-    }
-    if (window.orientation == 90) {
-     
-    }
-    if (window.orientation == 0) {
-       
-    }
-}, true);
+
 init();
-var count = 0;
 
 function init() {
     if (window.DeviceOrientationEvent) {
@@ -43,10 +32,6 @@ function init() {
         }, false);
     } 
 }
-
-var isPaused = false;
-
-
 
    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
       
