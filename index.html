@@ -22,20 +22,7 @@ c.style.top = window.innerHeight/2 - window.innerWidth/2 + "px";
  };
 
 
-init();
-
-function init() {
-    if (window.DeviceOrientationEvent) {
-        
-        window.addEventListener('deviceorientation', function (eventData) {
-            var tiltLR = eventData.gamma;
-            var tiltFB = eventData.beta;
-            var dir = eventData.alpha
-            deviceOrientationHandler(tiltLR, tiltFB, dir);
-        }, false);
-    } 
-}
-        
+  
         
         
        
@@ -87,6 +74,16 @@ ctx.rect(window.innerWidth/2-counter, window.innerWidth/2, counter, counter);
 ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
 
 ctx.stroke();
+                               
+                                if (window.DeviceOrientationEvent) {
+        
+        window.addEventListener('deviceorientation', function (eventData) {
+            var tiltLR = eventData.gamma;
+            var tiltFB = eventData.beta;
+            var dir = eventData.alpha
+            deviceOrientationHandler(tiltLR, tiltFB, dir);
+        }, false);
+    } 
                                
    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
       
