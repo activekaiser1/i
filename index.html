@@ -163,8 +163,10 @@ $(newspaper).on('click touchstart', function(){
       document.getElementById("doTiltLR").innerHTML = (tiltLR / 8).toFixed(2);
       document.getElementById("doTiltFB").innerHTML = (tiltFB / 2).toFixed(2);
       //document.getElementById("doDirection").innerHTML = dir;
+        var c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
-            ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(window.innerWidth/2 + tiltLR.toFixed(), window.innerWidth/2 + tiltFB.toFixed(), 50, 50);
            
      
       newspaper.attr({ 
