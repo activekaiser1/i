@@ -38,14 +38,32 @@ function init() {
         
         
         
+       
+        
+        
         setInterval(function(){ counter++; 
 
 ctx.beginPath();
-
+ctx.fillStyle="red";
 ctx.rect(1-counter, 1-counter, (window.innerWidth/2)-1+counter, (window.innerWidth/2)-1+counter);
-ctx.rect(1-counter, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.fillStyle="blue";
+ctx.rect(-counter, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.fillStyle="green";
 ctx.rect(window.innerWidth/2, 1-counter, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.fill();
+ctx.stroke();
+ctx.beginPath();
+ctx.fillStyle="grey";
 ctx.rect(window.innerWidth/2, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
+ctx.fill();
+ctx.stroke();
+
 
 ctx.rect(1+window.innerWidth/8-counter, 1+window.innerWidth/8-counter, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
 ctx.rect(1+window.innerWidth/8-counter, window.innerWidth/8*4, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
@@ -69,11 +87,11 @@ ctx.rect(window.innerWidth/2-counter, window.innerWidth/2, counter, counter);
 ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
 
 ctx.stroke();
-}, 3000);
-        
-        
-        
-        
+
+if(counter==(window.innerWidth/8*1).toFixed(0)){counter=0;};
+
+}, 30);
+
         
         
         
