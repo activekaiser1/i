@@ -9,6 +9,7 @@
 <script>
 var counter = 0;
 var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
 c.width = window.innerWidth;
 c.height = window.innerWidth;
 c.style.position = "absolute";
@@ -37,10 +38,6 @@ function init() {
 
    function deviceOrientationHandler(tiltLR, tiltFB, dir) {
       
-   
-     
-        var c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
         ctx.clearRect(0,0,window.innerWidth,window.innerHeight);
         ctx.fillStyle = "black";
         ctx.fillRect(window.innerWidth/2+tiltLR*10, window.innerWidth/2+tiltFB*10, 10, 10);
