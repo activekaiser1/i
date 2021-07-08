@@ -75,22 +75,17 @@ ctx.rect(window.innerWidth/2, window.innerWidth/2,counter, counter);
 
 ctx.stroke();
                                
-                                if (window.DeviceOrientationEvent) {
+                               
         
         window.addEventListener('deviceorientation', function (eventData) {
             var tiltLR = eventData.gamma;
             var tiltFB = eventData.beta;
             var dir = eventData.alpha
-            deviceOrientationHandler(tiltLR, tiltFB, dir);
+            ctx.fillStyle = "black";
+        ctx.fillRect(window.innerWidth/2+tiltLR*15, window.innerWidth/2+tiltFB*15, 10, 10);
         }, false);
     } 
                                
-   function deviceOrientationHandler(tiltLR, tiltFB, dir) {
-      
-        ctx.fillStyle = "black";
-        ctx.fillRect(window.innerWidth/2+tiltLR*15, window.innerWidth/2+tiltFB*15, 10, 10);
-           
-    }                               
 
 if(counter==(window.innerWidth/8*1).toFixed(0)){counter=0;};
                                
