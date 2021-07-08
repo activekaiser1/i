@@ -20,7 +20,7 @@ cc.width = window.innerWidth;
 cc.height = window.innerWidth;
 cc.style.position = "absolute";
 cc.style.top = window.innerHeight/2 - window.innerWidth/2 + "px";
-     
+     alert(9);
  document.ontouchmove = function(event){
     event.preventDefault();
  };
@@ -49,20 +49,24 @@ function init() {
 
 ctx.beginPath();
 ctx.fillStyle="red";
-ctx.rect(-counter, 1-counter, (window.innerWidth/2)-1+counter, (window.innerWidth/2)-1+counter);
+ctx.rect(1-counter, 1-counter, (window.innerWidth/2)-1+counter, (window.innerWidth/2)-1+counter);
 ctx.fill();
+ctx.stroke();
 ctx.beginPath();
 ctx.fillStyle="blue";
 ctx.rect(-counter, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
 ctx.fill();
+ctx.stroke();
 ctx.beginPath();
 ctx.fillStyle="green";
 ctx.rect(window.innerWidth/2, 1-counter, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
 ctx.fill();
+ctx.stroke();
 ctx.beginPath();
 ctx.fillStyle="grey";
 ctx.rect(window.innerWidth/2, window.innerWidth/2, window.innerWidth/2-1+counter, window.innerWidth/2-1+counter);
 ctx.fill();
+ctx.stroke();
 
 
 ctx.rect(1+window.innerWidth/8-counter, 1+window.innerWidth/8-counter, window.innerWidth/2-window.innerWidth/8-1+counter, window.innerWidth/2-window.innerWidth/8-1+counter);
